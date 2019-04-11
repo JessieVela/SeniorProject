@@ -127,6 +127,10 @@ public class BarcodeActivity extends AppCompatActivity {
                 storageBin.setText("Storage Bin: " + cursor.getString(2));
                 plant.setText("Plant: S095");
                 safetyStock.setText("Safety Stock: 0");
+
+                //Make buttons invisible
+                addButton.setVisibility(View.GONE);
+                subButton.setVisibility(View.GONE);
             }
         }
         //Scanned item was found in the scanlist, display dialog
