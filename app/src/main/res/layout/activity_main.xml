@@ -5,41 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/back">
 
     <ImageButton
         android:id="@+id/scanButton"
-        android:layout_width="150dp"
-        android:layout_height="129dp"
+        android:layout_width="166dp"
+        android:layout_height="135dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/scan3"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/scanText"
         app:layout_constraintEnd_toStartOf="@+id/manageButton"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:srcCompat="@drawable/scan3" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="408dp"
-        android:layout_height="156dp"
+        android:layout_width="400dp"
+        android:layout_height="127dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:scaleType="fitEnd"
-        app:layout_constraintBottom_toTopOf="@+id/scanButton"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/stanlee" />
 
     <TextView
         android:id="@+id/scanText"
@@ -58,17 +55,19 @@
 
     <ImageButton
         android:id="@+id/manageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="131dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/mana"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/manageText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/scanButton"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/Manage1copy"/>
+        app:srcCompat="@drawable/mana" />
 
     <TextView
         android:id="@+id/manageText"
@@ -87,31 +86,36 @@
 
     <ImageButton
         android:id="@+id/importButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="166dp"
+        android:layout_height="135dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/imp"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/importText"
         app:layout_constraintEnd_toStartOf="@+id/exportButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scanText"
-        app:srcCompat="@drawable/import_icon" />
+        app:srcCompat="@drawable/imp" />
 
     <ImageButton
         android:id="@+id/exportButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="166dp"
+        android:layout_height="135dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/exp"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/exportText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/importButton"
         app:layout_constraintTop_toBottomOf="@+id/manageText"
-        app:srcCompat="@drawable/export" />
+        app:srcCompat="@drawable/exp" />
 
     <TextView
         android:id="@+id/importText"
