@@ -16,14 +16,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String DATABASE_TABLE = "Inventory_Table";
     public static final String DATABASE_TEMP_TABLE = "Scanlist_Table";
 
-    //Columns for Inventory Table
+    // Columns for Inventory Table
     private static final String MATERIAL_NUM = "MATERIAL_NUM";
     private static final String MATERIAL_PLANT = "MATERIAL_PLANT";
     private static final String STORAGE_BIN = "STORAGE_BIN";
     private static final String MATERIAL_ATP = "MATERIAL_ATP";
     private static final String SAFETY_STOCK = "SAFETY_STOCK";
 
-    //Column for Scanlist Table
+    // Column for Scanlist Table
     private static final String BARCODE = "BARCODE";
     private static final String SCANLIST_ITEM_ATP = "SCANLIST_ITEM_ATP";
     private static final String SCANLIST_ITEM_STORAGE_BIN = "SCANLIST_ITEM_STORAGE_BIN";
@@ -78,7 +78,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return result != -1; //if result = -1 data absent insert
     }
 
-    //To insert from the Scanlist screen
+    // To insert from the Scanlist screen
     public void insert(DataClass s){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -92,7 +92,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.insert(DATABASE_TEMP_TABLE,null,contentValues);
         db.close();
     }
-    //To update product in the Scanlist Table
+
+    // To update product in the Scanlist Table
     public int update(DataClass s)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -101,7 +102,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         contentValues.put(SCANLIST_ITEM_STORAGE_BIN, s.getStorage());
         return db.update(DATABASE_TEMP_TABLE,contentValues, "BARCODE=?",new String[]{s.getBarcode()});
     }
-    //To delete product from the Scanlist Table
+
+    // To delete product from the Scanlist Table
     public int delete(DataClass s)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -113,13 +115,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.delete(DATABASE_TABLE, null, null);
     }
 
-    /////
     public void clearScanlist(){
         SQLiteDatabase db = this.getReadableDatabase();
         db.delete(DATABASE_TEMP_TABLE, null, null);
         //db.execSQL("DROP TABLE IF EXISTS DATABASE_TEMP_TABLE");
     }
 
+    // IS THIS FUNCTION IN USE OR IS IT OBSOLETE?
     public boolean importDatabase(StringBuilder statement) throws IOException {
         SQLiteDatabase db = this.getReadableDatabase();
         try {
@@ -129,7 +131,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             e.printStackTrace();
         }
         return true;
-        ///////
     }
 }
 
