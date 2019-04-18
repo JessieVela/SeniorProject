@@ -15,8 +15,12 @@
     </style>
 
     <style name="Toolbar.TextSize" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">35sp</item>
         <item name="android:textStyle">italic|bold</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:maxLines">100</item>
+        <item name="android:scrollHorizontally">false</item>
     </style>
 
 </resources>
