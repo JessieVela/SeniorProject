@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -18,11 +20,13 @@ import com.google.zxing.integration.android.IntentResult;
 /*
     This class defines the main screen of the application.
 */
-public class MainActivity extends AppCompatActivity  {
-    private ImageButton scanButton;
-    private ImageButton manageButton;
-    private ImageButton importButton;
-    private ImageButton exportButton;
+public class MainActivity extends AppCompatActivity {
+    ImageButton scanButton;
+    ImageButton manageButton;
+    ImageButton importButton;
+    ImageButton exportButton;
+    ImageButton settingButton;
+    Toolbar toolbar;
 
     ///Define of all buttons from the home page///
     @Override
@@ -30,17 +34,12 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Find the toolbar view inside the activity layout
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        toolbar.setTitle("Xtract");
-        // Sets the Toolbar to act as the ActionBar for this Activity window.
-        // Make sure the toolbar exists in the activity and is not null
-        setSupportActionBar(toolbar);
-
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         scanButton = (ImageButton) findViewById(R.id.scanButton);
         manageButton = (ImageButton) findViewById(R.id.manageButton);
         importButton = (ImageButton) findViewById(R.id.importButton);
         exportButton = (ImageButton) findViewById(R.id.exportButton);
+        settingButton = (ImageButton)findViewById(R.id.settingsButton);
 
         scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,13 +69,12 @@ public class MainActivity extends AppCompatActivity  {
                 startActivity(intent);
             }
         });
+        settingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
-
-//    // Menu icons are inflated just as they were with actionbar
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
 } // End of MainActivity class

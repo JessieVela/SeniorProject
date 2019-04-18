@@ -124,15 +124,43 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="100dp"
         android:background="@color/yellow"
-        android:minHeight="95dp"
+        android:minHeight="65dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleTextAppearance="@style/Toolbar.TextSize"
-        app:title="Warehouse Inventory"
-        app:titleTextColor="@android:color/black">
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/product_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adamina"
+            android:gravity="top"
+            android:maxLines="2"
+            android:text="Warehouse \nInventory"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold|italic"
+            android:typeface="normal"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="27dp" />
+
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center|right"
+            android:contentDescription="settings"
+            android:padding="5dp"
+            android:scaleType="fitXY"
+            android:background="@android:color/transparent"
+            android:src="@drawable/settings"
+            tools:layout_editor_absoluteX="197dp"
+            tools:layout_editor_absoluteY="25dp" />
+
     </android.support.v7.widget.Toolbar>
 
 </android.support.constraint.ConstraintLayout>

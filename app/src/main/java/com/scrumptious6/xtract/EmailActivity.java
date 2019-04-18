@@ -15,19 +15,19 @@ public class EmailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.emailc);
+        setContentView(R.layout.activity_email);
 
-        mEditTextTo = findViewById(R.id.edit_text_to);
-        mEditTextSubject = findViewById(R.id.edit_text_subject);
-        mEditTextMessage = findViewById(R.id.edit_text_message);
-
-        Button buttonSend = findViewById(R.id.button_send);
-        buttonSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendMail();
-            }
-        });
+//        mEditTextTo = findViewById(R.id.edit_text_to);
+//        mEditTextSubject = findViewById(R.id.edit_text_subject);
+//        mEditTextMessage = findViewById(R.id.edit_text_message);
+//
+//        Button buttonSend = findViewById(R.id.button_send);
+//        buttonSend.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                sendMail();
+//            }
+//        });
     }
 
     private void sendMail() {

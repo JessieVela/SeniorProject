@@ -4,15 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@color/black"
     tools:context=".ExportActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@color/yellow"
+        android:minHeight="95dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Warehouse Inventory"
+        app:titleTextAppearance="@style/Toolbar.TextSize"
+        app:titleTextColor="@android:color/black"></android.support.v7.widget.Toolbar>
 
     <Button
         android:id="@+id/emailButton"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/buttonshape"
         android:shadowColor="#A8A8A8"
@@ -24,23 +37,9 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="408dp"
-        android:layout_height="156dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/scanButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <Button
         android:id="@+id/exButton"
