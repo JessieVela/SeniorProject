@@ -175,7 +175,7 @@ public class ScanlistActivity extends AppCompatActivity
                             final AlertDialog dialog = builder.create();
                             dialog.show();
 
-                            //update button
+                            //update buttonshape
                             update.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {

@@ -13,7 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="248dp"
         android:layout_marginEnd="8dp"
-        android:text="Importing database"
+        android:text="@string/importing_database"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
