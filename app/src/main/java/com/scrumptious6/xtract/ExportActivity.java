@@ -63,8 +63,9 @@ public class ExportActivity extends AppCompatActivity {
         emailButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent EmailActivity = new Intent(ExportActivity.this, EmailActivity.class);
-                startActivity(EmailActivity);
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("message/rfc822");
+                startActivity(Intent.createChooser(intent, "Choose an email client"));
             }
         });
     }
