@@ -100,7 +100,6 @@ public class ImportActivity extends AppCompatActivity {
         try {
             InputStream inputStream = getContentResolver().openInputStream(uri);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-
             String line = reader.readLine();
 
             db.beginTransaction();
