@@ -55,7 +55,6 @@ public class ManagementActivity extends AppCompatActivity {
                             public void onClick(DialogInterface arg0, int arg1) {
                                 dbh.clearScanlist();
                                 Toast.makeText(ManagementActivity.this, "Scanlist cleared", Toast.LENGTH_SHORT).show();
-
                             }
                         });
                 alertDialogBuilder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
