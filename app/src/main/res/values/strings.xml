@@ -14,4 +14,5 @@
     <string name="exportbutton">exportButton</string>
     <string name="addrecordbtn">addRecordBtn</string>
     <string name="importing_database">Importing database</string>
+    <string name="title_activity_settings2">Settings</string>
 </resources>

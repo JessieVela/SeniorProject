@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     ImageButton manageButton;
     ImageButton importButton;
     ImageButton exportButton;
-    ImageButton settingButton;
     Toolbar toolbar;
 
     ///Define of all buttons from the home page///
@@ -39,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         manageButton = (ImageButton) findViewById(R.id.manageButton);
         importButton = (ImageButton) findViewById(R.id.importButton);
         exportButton = (ImageButton) findViewById(R.id.exportButton);
-        settingButton = (ImageButton)findViewById(R.id.settingsButton);
 
         scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,13 +64,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ExportActivity.class);
-                startActivity(intent);
-            }
-        });
-        settingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
             }
         });

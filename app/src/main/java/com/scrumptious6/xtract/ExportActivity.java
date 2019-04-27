@@ -13,7 +13,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,69 +27,72 @@ import java.io.IOException;
 public class ExportActivity extends AppCompatActivity {
 
     DatabaseHandler DBob;
-    Button exportButton;
-    Button emailButton;
+    private Button exportButton;
+    private Button emailButt;
 
     private Context mContext;
     private static final int REQUEST = 112;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_export);
-        mContext = ExportActivity.this;
+        mContext= ExportActivity.this;
 
-        if (Build.VERSION.SDK_INT >= 24) {
+        if (Build.VERSION.SDK_INT >= 23) {
             String[] PERMISSIONS = {android.Manifest.permission.READ_EXTERNAL_STORAGE,android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
             if (!hasPermissions(mContext, PERMISSIONS)) {
                 ActivityCompat.requestPermissions((Activity) mContext, PERMISSIONS, REQUEST );
             }
         }
-
         DBob = new DatabaseHandler(this);
         exportButton = (Button) findViewById(R.id.exButton);
-        emailButton = (Button) findViewById(R.id.emailButton);
-
         exportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
+                try
+                {
                     new ExportDatabaseCSVTask().execute("");
-                } catch (Exception ex) {
-                    Log.e("Error in ExportActivity", ex.toString());
+                }
+                catch(Exception ex)
+                {
+                    Log.e("Error in ExportActivity",ex.toString());
                 }
             }
         });
-        emailButton.setOnClickListener(new View.OnClickListener() {
+        emailButt = (Button) findViewById(R.id.emailButton);
+        emailButt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent EmailActivity = new Intent(ExportActivity.this, EmailActivity.class);
-                startActivity(EmailActivity);
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("message/rfc822");
+                startActivity(Intent.createChooser(intent, "Choose an email client"));
             }
         });
     }
-
-    private class ExportDatabaseCSVTask extends AsyncTask<String, Void, Boolean> {
+    private class ExportDatabaseCSVTask extends AsyncTask<String, Void, Boolean>
+    {
         Context ctx = ExportActivity.this;
         private final ProgressDialog dialog = new ProgressDialog(ctx);
-
         // can use UI thread here
         @Override
-        protected void onPreExecute() {
+        protected void onPreExecute()
+        {
             this.dialog.setMessage("Exporting database...");
             this.dialog.show();
         }
-
         // automatically done on worker thread (separate from UI thread)
-        protected Boolean doInBackground(final String... args) {
-            File dbFile = getDatabasePath("Inventory.db");
+        protected Boolean doInBackground(final String... args)
+        {
+            File dbFile=getDatabasePath("Inventory.db");
             File exportDir = new File(Environment.getExternalStorageDirectory(), "");
-            if (!exportDir.exists()) {
+            if (!exportDir.exists())
+            {
                 exportDir.mkdirs();
             }
             //File file = new File("data/data/com.scrumptious6.xtract/", "excelDB.csv");
             File file = new File(exportDir, "excelDB.csv");
-            try {
+            try
+            {
                 file.createNewFile();
                 CSVWriter csvWrite = new CSVWriter(new FileWriter(file));
                 SQLiteDatabase db = DBob.getReadableDatabase();
@@ -98,7 +100,7 @@ public class ExportActivity extends AppCompatActivity {
                 final Cursor cursor = db.rawQuery(selectQuery, null);
                 Cursor curCSV = db.rawQuery(selectQuery, null);
                 csvWrite.writeNext(curCSV.getColumnNames());
-                while (curCSV.moveToNext()) {
+                while(curCSV.moveToNext()) {
                     String outlet_barcode = curCSV.getString(curCSV.getColumnIndex("BARCODE"));
                     int outlet_atp = curCSV.getInt(curCSV.getColumnIndex("SCANLIST_ITEM_ATP"));
                     String outlet_storage_bin = curCSV.getString(curCSV.getColumnIndex("SCANLIST_ITEM_STORAGE_BIN"));
@@ -110,29 +112,35 @@ public class ExportActivity extends AppCompatActivity {
                 csvWrite.close();
                 curCSV.close();
                 return true;
-            } catch (SQLException sqlEx) {
+            }
+            catch(SQLException sqlEx)
+            {
                 Log.e("MainActivity", sqlEx.getMessage(), sqlEx);
                 return false;
-            } catch (IOException e) {
+            }
+            catch (IOException e)
+            {
                 Log.e("MainActivity", e.getMessage(), e);
                 return false;
             }
         }
-
         // can use UI thread here
         @Override
-        protected void onPostExecute(final Boolean success) {
-            if (this.dialog.isShowing()) {
+        protected void onPostExecute(final Boolean success)
+        {
+            if (this.dialog.isShowing())
+            {
                 this.dialog.dismiss();
             }
-            if (success) {
+            if (success)
+            {
                 Toast.makeText(ctx, "Export successful!", Toast.LENGTH_SHORT).show();
-            } else {
+            }
+            else {
                 Toast.makeText(ctx, "Export failed", Toast.LENGTH_SHORT).show();
             }
         }
     }
-
     private static boolean hasPermissions(Context context, String... permissions) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
             for (String permission : permissions) {
@@ -158,5 +166,3 @@ public class ExportActivity extends AppCompatActivity {
         }
     }
 }
-
-
