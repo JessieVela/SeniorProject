@@ -3,8 +3,13 @@ package com.scrumptious6.xtract;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -14,15 +19,13 @@ import com.google.zxing.integration.android.IntentResult;
 
 /*
     This class defines the main screen of the application.
- */
-//
+*/
 public class MainActivity extends AppCompatActivity {
-
-    DatabaseHandler db;
-    private ImageButton scanButton;
-    private ImageButton manageButton;
-    private ImageButton importButton;
-    private ImageButton exportButton;
+    ImageButton scanButton;
+    ImageButton manageButton;
+    ImageButton importButton;
+    ImageButton exportButton;
+    Toolbar toolbar;
 
     ///Define of all buttons from the home page///
     @Override
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         scanButton = (ImageButton) findViewById(R.id.scanButton);
         manageButton = (ImageButton) findViewById(R.id.manageButton);
         importButton = (ImageButton) findViewById(R.id.importButton);

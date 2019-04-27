@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.io.Writer;
 
 public class CSVWriter {
-
     private PrintWriter pw;
     private char separator;
     private char quotechar;
@@ -30,7 +29,6 @@ public class CSVWriter {
         this.lineEnd = lineEnd;
     }
     public void writeNext(String[] nextLine) {
-
         if (nextLine == null)
             return;
 
@@ -62,15 +60,13 @@ public class CSVWriter {
         sb.append(lineEnd);
         pw.write(sb.toString());
     }
+
     public void flush() throws IOException {
-
         pw.flush();
-
     }
+
     public void close() throws IOException {
         pw.flush();
         pw.close();
     }
-
 }
-

@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">Xtract</string>
-    <string name="tab">\u0009\u0009\u0009\u0009</string>
+    <string name="scanlist">Scanlist</string>
+    <string name="database">Database</string>
+    <string name="clear_scanlist">Clear Scanlist</string>
+    <string name="scanbutton">scanButton</string>
+    <string name="logobutton">logoButton</string>
+    <string name="scanner">Scanner</string>
+    <string name="manage">Manage</string>
+    <string name="import_string">Import</string>
+    <string name="export">Export</string>
+    <string name="managebutton">manageButton</string>
+    <string name="importbutton">importButton</string>
+    <string name="exportbutton">exportButton</string>
+    <string name="addrecordbtn">addRecordBtn</string>
+    <string name="importing_database">Importing database</string>
+    <string name="title_activity_settings2">Settings</string>
 </resources>

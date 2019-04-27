@@ -3,6 +3,7 @@ package com.scrumptious6.xtract;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -27,6 +28,7 @@ public class ExportActivity extends AppCompatActivity {
 
     DatabaseHandler DBob;
     private Button exportButton;
+    private Button emailButt;
 
     private Context mContext;
     private static final int REQUEST = 112;
@@ -55,6 +57,15 @@ public class ExportActivity extends AppCompatActivity {
                 {
                     Log.e("Error in ExportActivity",ex.toString());
                 }
+            }
+        });
+        emailButt = (Button) findViewById(R.id.emailButton);
+        emailButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("message/rfc822");
+                startActivity(Intent.createChooser(intent, "Choose an email client"));
             }
         });
     }
@@ -155,5 +166,3 @@ public class ExportActivity extends AppCompatActivity {
         }
     }
 }
-
-

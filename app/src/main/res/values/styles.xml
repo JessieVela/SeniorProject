@@ -1,15 +1,27 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="Theme.AppCompat.Light.NoActionBar.Fullscreen" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.FixedSize" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
+        <!--<item name="android:windowContentOverlay">@null</item>-->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!--<item name="android:actionBarSize">85dp</item>-->
+        <!--<item name="actionBarSize">85dp</item>-->
+    </style>
+
+    <style name="Toolbar.TextSize" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">35sp</item>
+        <item name="android:textStyle">italic|bold</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:maxLines">100</item>
+        <item name="android:scrollHorizontally">false</item>
     </style>
 
 </resources>
