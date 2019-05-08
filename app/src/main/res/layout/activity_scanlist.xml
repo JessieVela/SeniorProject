@@ -9,6 +9,63 @@
     android:orientation="vertical"
     tools:context=".ScanlistActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/yellow"
+        android:minHeight="65dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/product_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/adamina"
+            android:gravity="top"
+            android:maxLines="2"
+            android:padding="5dp"
+            android:text="Scanned List\u0020"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold|italic"
+            android:typeface="normal"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="27dp" />
+
+        <ImageButton
+            android:id="@+id/plusBtn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="8dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="@+id/toolbar"
+            app:srcCompat="@drawable/plus"
+            android:layout_gravity="end"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="8dp"
+            android:background="@null"
+            android:maxWidth="25dp"
+            android:maxHeight="25dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/search"
+            app:layout_constraintEnd_toStartOf="@+id/plusBtn"
+            tools:layout_editor_absoluteY="16dp"
+            android:layout_gravity="end"
+            tools:srcCompat="@drawable/search" />
+
+    </android.support.v7.widget.Toolbar>
+
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="fill_parent"
@@ -21,44 +78,5 @@
             android:layout_height="match_parent"
             android:stretchColumns="*"></TableLayout>
     </ScrollView>
-
-    <ImageButton
-        android:id="@+id/addB"
-        android:layout_width="79dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scroll"
-        app:layout_constraintVertical_bias="0.987"
-        app:srcCompat="@drawable/add" />
-
-    <ImageButton
-        android:id="@+id/searchButton"
-        android:layout_width="74dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:maxWidth="25dp"
-        android:maxHeight="25dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.725"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.987"
-        tools:srcCompat="@drawable/search" />
-
-
-
-
 </android.support.constraint.ConstraintLayout>
 
